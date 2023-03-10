@@ -1,0 +1,17 @@
+export const headers = [
+    "Ettor",
+    "Tvåor",
+    "Treor",
+    "Fyror",
+    "Femmor",
+    "Sexor",
+    "Ett par",
+    "Två par",
+    "Tretal",
+    "Fyrtal",
+    "Liten stege",
+    "Stor stege",
+    "Kåk",
+    "Chans",
+    "Yatzy",
+];
