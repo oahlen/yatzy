@@ -1,5 +1,5 @@
-FROM node:lts-bullseye-slim AS node_base
-FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
+FROM docker.io/node:lts-bookworm-slim AS node_base
+FROM mcr.microsoft.com/dotnet/sdk:7.0-bookworm-slim AS build
 COPY --from=node_base . .
 
 WORKDIR /app
