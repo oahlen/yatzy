@@ -26,6 +26,7 @@
             omnisharp-roslyn
             nodejs_20
             nodePackages.npm
+            nodePackages.typescript-language-server
             nodePackages.svelte-language-server
           ];
         };
