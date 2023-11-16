@@ -70,6 +70,29 @@ export default class Player {
         return this.#scores[index] - 3 * (index + 1) < 0 ? "negative" : "positive";
     }
 
+    getTotalDelta() {
+        let total = 0;
+        let expected = 0;
+
+        for (let i = 0; i < 6; i++) {
+            if (this.#marks[i]) {
+                total += this.#scores[i];
+                expected += (i + 1) * 3;
+            }
+        }
+
+        return total - expected;
+    }
+
+    getTotalDeltaString() {
+        var delta = this.getTotalDelta();
+        return delta === 0 ? "" : delta.toString();
+    }
+
+    getTotalDeltaLabel() {
+        return this.getTotalDelta() < 0 ? "negative" : "positive";
+    }
+
     getBonusString() {
         let bonus = this.bonus;
         return bonus > 0 || this.#marks.slice(0, 6).every(mark => mark) ? bonus.toString() : "";

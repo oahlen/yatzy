@@ -19,6 +19,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 {#if bonus}
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="grid-item cell detail {style}" on:click={click}>
     <span />
     <span class="center">{player.getScoreString(index)}</span>
@@ -27,6 +28,7 @@
     >
   </div>
 {:else}
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="grid-item cell {style}" on:click={click}>
     {player.getScoreString(index)}
   </div>

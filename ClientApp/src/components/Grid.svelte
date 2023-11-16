@@ -77,9 +77,15 @@
       />
     {/each}
 
-    <div class="grid-item cell highlight {cellStyle(player)}">
-      {player.sum}
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="grid-item cell detail highlight {cellStyle(player)}">
+      <span />
+      <span class="center">{player.sum}</span>
+      <span class="right {player.getTotalDeltaLabel()}"
+        >{player.getTotalDeltaString()}</span
+      >
     </div>
+
     <div class="grid-item cell highlight {cellStyle(player)}">
       {player.getBonusString()}
     </div>
@@ -147,5 +153,24 @@
 
   .grid-item.highlight.current {
     background-color: #ffff00;
+  }
+
+  /* TODO Break out duplicated styles */
+  .detail {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .right {
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+
+  .right.positive {
+    color: darkgreen;
+  }
+
+  .right.negative {
+    color: darkred;
   }
 </style>
