@@ -14,7 +14,7 @@ public class HighscoreDto
 
     public int Yatzy { get; set; }
 
-    public HighscoreDto(string playerName, int wins, int losses, int games, int record, int yatzy)
+    public HighscoreDto(string playerName, int games, int wins, int losses, int record, int yatzy)
     {
         PlayerName = playerName;
         Games = games;
