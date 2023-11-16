@@ -2,6 +2,7 @@
   import { createEventDispatcher } from "svelte";
   import type Player from "../lib/player";
   import { headers } from "../lib/headers";
+  import BackspaceIcon from "../assets/BackspaceIcon.svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -23,6 +24,10 @@
     }
   }
 
+  function backspace() {
+    value = "";
+  }
+
   function done() {
     if (value.length > 0) {
       player.setScore(parseInt(value, 10), index);
@@ -33,13 +38,8 @@
   }
 
   function reset() {
-    if (value.length == 0) {
-      // Reset the score entirely when resetting on empty value
-      player.resetScore(index);
-      close();
-    } else {
-      value = "";
-    }
+    player.resetScore(index);
+    close();
   }
 
   function cancel() {
@@ -110,6 +110,12 @@
         on:click={() => click(9)}>9</button
       >
       <button
+        class="dialog-button backspace"
+        style="grid-area: backspace;"
+        on:click={() => backspace()}
+        ><BackspaceIcon />
+      </button>
+      <button
         class="dialog-button zero"
         style="grid-area: zero;"
         on:click={() => click(0)}>0</button
@@ -148,7 +154,7 @@
       "one two three"
       "four five six"
       "seven eight nine"
-      ". zero ."
+      ". zero backspace"
       "ok clear cancel";
     column-gap: 1rem;
     row-gap: 1rem;
