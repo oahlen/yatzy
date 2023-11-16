@@ -33,7 +33,13 @@
   }
 
   function reset() {
-    value = "";
+    if (value.length == 0) {
+      // Reset the score entirely when resetting on empty value
+      player.resetScore(index);
+      close();
+    } else {
+      value = "";
+    }
   }
 
   function cancel() {
