@@ -19,9 +19,9 @@ public class HighscoreService
         const string sql = @"
             SELECT
             p.name AS PlayerName,
+            COUNT(r.id) AS Games,
             COUNT(CASE WHEN r.position = 1 THEN 1 END) AS Wins,
             COUNT(CASE WHEN r.position > 1 THEN 1 END) AS Losses,
-            COUNT(r.id) AS Games,
             MAX(score) AS Record,
             COUNT(CASE WHEN r.yatzy = 1 THEN 1 END) AS Yatzy
             FROM result r
@@ -31,7 +31,7 @@ public class HighscoreService
             LIMIT 5";
 
         return _context.Highscores.FromSqlRaw(sql)
-            .Select(x => new HighscoreDto(x.PlayerName, x.Wins, x.Losses, x.Games, x.Record, x.Yatzy))
+            .Select(x => new HighscoreDto(x.PlayerName, x.Games, x.Wins, x.Losses, x.Record, x.Yatzy))
             .ToListAsync(cancellationToken);
     }
 }

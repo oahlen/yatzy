@@ -64,7 +64,7 @@
   <div class="grid-item margin strong"><span>Total summa</span></div>
   <div class="grid-item margin strong">Placering</div>
 
-  {#each game.players as player, _}
+  {#each game.players as player}
     <div class="grid-item header player">{player.name}</div>
 
     {#each Array(6) as _, index (index)}

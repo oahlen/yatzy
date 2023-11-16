@@ -17,7 +17,7 @@
     <span class="header">Resultat</span>
 
     <div class="content">
-      {#each game.playersSorted as player, _}
+      {#each game.playersSorted as player}
         <ResultCard {player} position={game.getPosition(player)} />
       {/each}
     </div>

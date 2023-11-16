@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let highscores = [];
+  let highscores: any[] = [];
 
   function winPercentage(highscore: any) {
     return Math.trunc((highscore.wins / highscore.games) * 100);
@@ -24,6 +24,7 @@
   <table>
     <tr>
       <th>Spelare</th>
+      <th>Antal spel</th>
       <th>Vinster</th>
       <th>Förluster</th>
       <th>Andel vinster %</th>
@@ -31,9 +32,10 @@
       <th>Antal yatzy</th>
       <th>Andel yatzy %</th>
     </tr>
-    {#each highscores as highscore, _}
+    {#each highscores as highscore}
       <tr>
         <td>{highscore.playerName}</td>
+        <td>{highscore.games}</td>
         <td>{highscore.wins}</td>
         <td>{highscore.losses}</td>
         <td>{winPercentage(highscore)}</td>
