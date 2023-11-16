@@ -1,5 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-docker build -t yatzy .
+dotnet restore
+rm -rf publish
+dotnet publish -c Release -o publish
+
+podman build -t yatzy .
 mkdir -p output
-docker image save -o output/yatzy yatzy
+# docker image save -o output/yatzy yatzy
