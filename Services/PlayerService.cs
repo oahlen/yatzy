@@ -18,6 +18,7 @@ public class PlayerService
     public Task<List<PlayerDto>> GetPlayersAsync(CancellationToken cancellationToken)
     {
         return _context.Players
+            .Where(x => x.Active)
             .OrderBy(x => x.Id)
             .Take(10)
             .Select(x => new PlayerDto(x.Id, x.Name))

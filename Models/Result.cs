@@ -16,7 +16,8 @@ public class Result
     [Column("id", TypeName = "int(11)")]
     public int Id { get; set; }
 
-    [Column("game", TypeName = "int(11)")] public int? Game { get; set; }
+    [Column("game", TypeName = "int(11)")]
+    public int? Game { get; set; }
 
     [Column("player", TypeName = "int(11)")]
     public int? Player { get; set; }

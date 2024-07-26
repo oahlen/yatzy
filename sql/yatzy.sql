@@ -3,6 +3,7 @@
 CREATE TABLE IF NOT EXISTS yatzy.player (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
+    active TINYINT DEFAULT 1,
     UNIQUE INDEX index_name (name)
 );
 
@@ -24,8 +25,9 @@ CREATE TABLE IF NOT EXISTS yatzy.result (
 
 -- Test data
 
-INSERT IGNORE INTO yatzy.player (id, name) VALUES (1, "John Doe");
-INSERT IGNORE INTO yatzy.player (id, name) VALUES (2, "Jane Doe");
+INSERT IGNORE INTO yatzy.player (id, name, active) VALUES (1, "John Doe", 1);
+INSERT IGNORE INTO yatzy.player (id, name, active) VALUES (2, "Jane Doe", 0);
+INSERT IGNORE INTO yatzy.player (id, name, active) VALUES (3, "Test", 1);
 
 INSERT IGNORE INTO yatzy.game (id, played) VALUES (1, "2022-02-21");
 INSERT IGNORE INTO yatzy.result (game, player, position, score, yatzy) VALUES (1, 1, 1, 311, TRUE);

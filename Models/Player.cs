@@ -19,6 +19,9 @@ public class Player
     [StringLength(50)]
     public string Name { get; set; } = null!;
 
+    [Column("active", TypeName = "tinyint(1)")]
+    public bool Active { get; set; } = false;
+
     [InverseProperty(nameof(Result.PlayerNavigation))]
     public ICollection<Result> Results { get; set; }
 }

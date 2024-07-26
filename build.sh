@@ -6,4 +6,4 @@ dotnet publish -c Release -o publish
 
 podman build -t yatzy .
 mkdir -p output
-# docker image save -o output/yatzy yatzy
+podman image save -o output/yatzy yatzy
